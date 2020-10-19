@@ -1,10 +1,9 @@
 runtime: python37
-entrypoint: gunicorn -b :$PORT main:app
-
 handlers:
-
+- url: /
+  static_files: build/index.html
+  upload: build/index.html
 - url: /static
   static_dir: build/static/
-
 - url: /(.*)
   script: auto
